@@ -1,3 +1,3 @@
-# react-instant package
+# elm-instant package
 
-Preview react components in atom and see live changes as you change code.
+Preview elm code in atom and see live changes as you change code.

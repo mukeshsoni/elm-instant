@@ -1,13 +1,13 @@
 {
-  "name": "react-instant",
-  "main": "./lib/react-instant",
+  "name": "elm-instant",
+  "main": "./lib/elm-instant",
   "version": "0.0.0",
   "description": "A short description of your package",
   "keywords": [],
   "activationCommands": {
-    "atom-workspace": "react-instant:toggle"
+    "atom-workspace": "elm-instant:toggle"
   },
-  "repository": "https://github.com/atom/react-instant",
+  "repository": "https://github.com/atom/elm-instant",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
