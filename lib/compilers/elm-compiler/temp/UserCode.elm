@@ -1,9 +1,10 @@
 module UserCode exposing (..)
 
-import Html exposing (..)
+import Html exposing (Html)
 import Html.App as Html
-import Html.Events exposing (..)
-import Random
+import Svg exposing (..)
+import Svg.Attributes exposing (..)
+import Time exposing (Time, second)
 
 
 
@@ -20,14 +21,12 @@ main =
 -- MODEL
 
 
-type alias Model =
-  { dieFace : Int
-  }
+type alias Model = Time
 
 
 init : (Model, Cmd Msg)
 init =
-  (Model 1, Cmd.none)
+  (0, Cmd.none)
 
 
 
@@ -35,18 +34,14 @@ init =
 
 
 type Msg
-  = Roll
-  | NewFace Int
+  = Tick Time
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
-    Roll ->
-      (model, Random.generate NewFace (Random.int 1 6))
-
-    NewFace newFace ->
-      (Model newFace, Cmd.none)
+    Tick newTime ->
+      (newTime, Cmd.none)
 
 
 
@@ -55,7 +50,7 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-  Sub.none
+  Time.every second Tick
 
 
 
@@ -64,7 +59,17 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-  div []
-    [ h1 [] [ text (toString model.dieFace) ]
-    , button [ onClick Roll ] [ text "Roll" ]
-    ]
+  let
+    angle =
+      turns (Time.inMinutes model)
+
+    handX =
+      toString (50 + 40 * cos angle)
+
+    handY =
+      toString (50 + 40 * sin angle)
+  in
+    svg [ viewBox "0 0 100 100", width "300px" ]
+      [ circle [ cx "50", cy "50", r "45", fill "#0B79CE" ] []
+      , line [ x1 "50", y1 "50", x2 handX, y2 handY, stroke "#023963" ] []
+      ]
