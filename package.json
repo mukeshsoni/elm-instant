@@ -49,5 +49,9 @@
   },
   "devDependencies": {
     "standard": "8.1.0"
-  }
+  },
+  "package-deps": [
+    "language-elm",
+    "elm-format"
+  ]
 }
