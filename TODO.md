@@ -6,3 +6,26 @@
 - [ ] show errors with red background
 - [ ] load .frolic files, if any
 - [ ] Can save playground code as a file. Also, when the code file is loaded in the future, the playground file automatically gets loaded with it. That way, you can think of the playground code as sort of clojurescript devcards.
+- [ ] Preferences - allow user to add path to elm packages as a preference
+- [ ] ability to install a library by giving the name (e.g. elm-lang/html). If library already available, don't do nothing
+- [ ] watch files which are imported in the loaded file as well as the loaded file and reload on change of any the files files
+- [ ] time traveling slider
+- [ ] when user does `import module x` determine if it’s in local folder. if not, do a `elm package install x` automatically
+- [ ] use async await for async operations
+- [ ] FIX Bug - keep getting this error `cannot read property appendChild of null`
+  - looks like it happens in the elm VM
+- [ ] line mapping from playground expressions to output goes for a toss in three scenarios -
+    - [ ] there are statements with expressions
+    - [ ] the output content wraps in more than one line
+    - [ ] when there is a mixture of expressions and ui components
+- [ ] might not work on windows because of folder paths (/ vs \)
+- [ ] Generate tests from playground code
+- [ ] For ui components, can generate tests for update function
+- [ ] use [memory-fs](https://www.npmjs.com/package/memory-fs) instead of writing files
+- [ ] **Frolic Lessons** - Allow creation of lessons (can start with lesson file with particular format). Allows users to go to next/previous questions etc., when a lesson is loaded
+    - [ ] load frolic-lesson.json. will have the order of question files. Should have corresponding .frolic (playground) files
+    - [ ] When user moves to next/previous/particular question, update json file so that next time the lesson file is loaded, start from that questions
+    - [ ] jump to question number 'x'
+    - [ ] Finish lesson?
+    - [ ] Feedback (how many correct/wrong etc.)
+    - [ ] hints
