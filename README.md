@@ -25,6 +25,7 @@ elm-instant was inspired by [haskell for mac](http://haskellformac.com), the ide
 ```
 npm install elm -g -- in case you don't have elm installed already
 git clone https://github.com/mukeshsoni/elm-instant
+cd elm-instant
 npm install
 npm run build
 apm link
