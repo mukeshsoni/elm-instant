@@ -3,3 +3,5 @@
 - [ ] while creating playground editor, fix the grammar as 'elm'
 - [ ] remember the last content in playground pane
 - [ ] load .frolic files, if any
+- [ ] Can save playground code as a file. Also, when the code file is loaded in the future, the playground file automatically gets loaded with it. That way, you can think of the playground code as sort of clojurescript devcards.
+- [ ] install elm-format as dependency for installing this package
