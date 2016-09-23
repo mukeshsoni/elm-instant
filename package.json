@@ -17,7 +17,7 @@
     "install-elm-packages": "cd lib/compilers/elm-compiler/temp && rm -rf elm-stuff && elm-package install -y && cd -",
     "preinstall": "npm run install-elm-packages"
   },
-  "repository": "https://github.com/atom/elm-instant",
+  "repository": "https://github.com/mukeshsoni/elm-instant",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
