@@ -1,5 +1,6 @@
+- [x] add a header to the preview panel (try to mimic atom header)
+- [x] contain: 'strict' for output container
 - [ ] show errors with red background
-- [ ] contain: 'strict' for output container
 - [ ] while creating playground editor, fix the grammar as 'elm'
 - [ ] remember the last content in playground pane
 - [ ] load .frolic files, if any
