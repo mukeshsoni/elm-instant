@@ -1,7 +1,7 @@
 {
   "name": "elm-instant",
   "main": "./lib/elm-instant",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A short description of your package",
   "keywords": [
     "elm",
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "lint": "standard lib",
-    "install-elm-packages": "cd lib/compilers/elm-compiler/temp && rm -rf elm-stuff && elm-package install -y && cd -"
+    "install-elm-packages": "cd lib/compilers/elm-compiler/temp && rm -rf elm-stuff && elm-package install -y && cd -",
+    "preinstall": "npm run install-elm-packages"
   },
   "repository": "https://github.com/atom/elm-instant",
   "license": "MIT",
