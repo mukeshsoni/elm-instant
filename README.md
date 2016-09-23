@@ -23,11 +23,7 @@ elm-instant was inspired by [haskell for mac](http://haskellformac.com), the ide
 
 ```
 npm install elm -g -- in case you don't have elm installed already
-git clone https://github.com/mukeshsoni/elm-instant
-cd elm-instant
-npm install
-npm run install-elm-packages
-apm link
+apm install elm-instant
 ```
 
 **Note**
@@ -39,6 +35,17 @@ render
     , update = update
     , subscriptions = subscriptions
     }
+```
+
+## Dev setup
+
+```
+npm install elm -g -- in case you don't have elm installed already
+git clone https://github.com/mukeshsoni/elm-instant
+cd elm-instant
+npm install
+npm run install-elm-packages
+apm link
 ```
 
 ## Packages included by default
