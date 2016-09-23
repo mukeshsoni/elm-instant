@@ -5,7 +5,8 @@
     "license": "BSD3",
     "source-directories": [
         "/Users/mukeshsoni/Documents/projects/elm-instant/lib/compilers/elm-compiler/temp",
-        "/Users/mukeshsoni/Documents/projects/elm-instant/lib"
+        "/Users/mukeshsoni/Desktop/test/elm-architecture-tutorial/examples",
+        "/Users/mukeshsoni/Desktop/test/elm-architecture-tutorial/nesting"
     ],
     "exposed-modules": [],
     "dependencies": {

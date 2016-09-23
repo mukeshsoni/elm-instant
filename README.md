@@ -13,7 +13,7 @@ With elm-instant, you can start typing expressions and immediately see results i
 - Can load files from the disk and the dependencies will be resolves automatically
 - Having multiple ui components to try out in same output window (like [clojurescript devcards](https://github.com/bhauman/devcards))
 
-![Elm counter pairs from elm-architechture examples](images/elm-playground-desktop-counter-pairs.gif)
+![Elm counter pairs from elm-architechture examples](images/showcase.gif)
 
 elm-instant was inspired by [haskell for mac](http://haskellformac.com), the idea is to have a playground panel where users can type out code expressions and see the result instantaneously without any setup. There is a similar thing currently for elm ([elm-lang.org/try](elm-lang.org/try)) but it has limited functionality and doesn't work without having the ui layer (model, view, update, main etc.).
 
@@ -26,7 +26,7 @@ npm install elm -g -- in case you don't have elm installed already
 git clone https://github.com/mukeshsoni/elm-instant
 cd elm-instant
 npm install
-npm run build
+npm run install-elm-packages
 apm link
 ```
 
@@ -77,18 +77,6 @@ render
 - elm-community/array-extra
 - elm-community/basics-extra
 - elm-community/dict-extra
-
-## Dev setup
-
-```
-npm install
-npm install elm -g -- in case you don't have elm installed already
--- go to folder app/compilers/elm/temp/ and do
-elm-package install -y
--- from the root folder run
-npm run hot-server
-npm run start-hot
-```
 
 ## Maintainers
 
