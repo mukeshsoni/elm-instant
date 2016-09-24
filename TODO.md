@@ -4,7 +4,7 @@
 - [x] while creating playground editor, fix the grammar as 'elm'
 - [x] install language-elm and elm-format atom packages as dependency for installing this package (called package-deps :))
 - [ ] show errors with red background
-- [ ] load .frolic files, if any
+- [ ] load .pg (playground files extension) files, if any
 - [ ] Can save playground code as a file. Also, when the code file is loaded in the future, the playground file automatically gets loaded with it. That way, you can think of the playground code as sort of clojurescript devcards.
 - [ ] Preferences - allow user to add path to elm packages as a preference
 - [ ] ability to install a library by giving the name (e.g. elm-lang/html). If library already available, don't do nothing

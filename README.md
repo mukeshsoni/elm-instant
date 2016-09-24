@@ -13,7 +13,7 @@ With elm-instant, you can start typing expressions and immediately see results i
 - Can load files from the disk and the dependencies will be resolves automatically
 - Can try multiple expressions for the same function. i like how [clojurescript devcards](https://github.com/bhauman/devcards)) describes themselves - visual REPL.
 
-![Elm counter pairs from elm-architechture examples](images/showcase.gif)
+![Elm counter pairs from elm-architechture examples](https://raw.githubusercontent.com/mukeshsoni/elm-instant/master/images/showcase.gif)
 
 elm-instant was inspired by [haskell for mac](http://haskellformac.com), the idea is to have a playground panel where users can type out code expressions and see the result instantaneously without any setup. There is a similar thing currently for elm ([elm-lang.org/try](elm-lang.org/try)) but it has limited functionality and doesn't work without having the ui layer (model, view, update, main etc.).
 
