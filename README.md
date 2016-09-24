@@ -1,17 +1,17 @@
 # elm-instant
 
-elm-instant is an atom package inspired by [haskell for mac](http://haskellformac.com)
+elm-instant is an atom package inspired by [haskell for mac](http://haskellformac.com). It provides both a visual REPL to try your elm code as well as a preview pane to immediately see the output of your function calls.
 
-With elm-instant, you can start typing expressions and immediately see results in the output panel without any glue code. Plus, it works for ui components too!
+With elm-instant, you can start typing expressions and immediately see results in the output panel without any glue code. Plus, it works for ui stuff too!
 
 ## Features
 
 - Immediate feedback
 - Quick way for someone new to the language to try it out
-- Mix of ui components + normal expressions
+- Mix of ui views + normal expressions
 - Has around 38 packages built in (the list is below). E.g. Just do `import Http` and it will work.
 - Can load files from the disk and the dependencies will be resolves automatically
-- Having multiple ui components to try out in same output window (like [clojurescript devcards](https://github.com/bhauman/devcards))
+- Can try multiple expressions for the same function. i like how [clojurescript devcards](https://github.com/bhauman/devcards)) describes themselves - visual REPL.
 
 ![Elm counter pairs from elm-architechture examples](images/showcase.gif)
 
@@ -27,7 +27,7 @@ apm install elm-instant
 ```
 
 **Note**
-To test out your ui components just copy whatever you would pass to `main` and call it (in the playground panel) will a function named `render` (also checkout the gif in case of confusion). E.g.
+To test out your views just copy whatever you would pass to `main` and call it (in the playground panel) will a function named `render` (also checkout the gif in case of confusion). E.g.
 ```
 render
     { init = init
