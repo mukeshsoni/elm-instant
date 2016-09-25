@@ -32,9 +32,6 @@
     "react-for-atom": "15.3.1-0",
     "rxjs": "5.0.0-beta.12"
   },
-  "devDependencies": {
-    "standard": "8.1.0"
-  },
   "package-deps": [
     "language-elm",
     "elm-format"
