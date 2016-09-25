@@ -1,6 +1,6 @@
 # elm-instant
 
-elm-instant is an atom package inspired by [haskell for mac](http://haskellformac.com). It provides both a visual REPL to try your elm code as well as a preview pane to immediately see the output of your function calls.
+elm-instant is an atom package inspired by [haskell for mac](http://haskellformac.com). It provides both a visual REPL to try your elm code as well as a preview pane to immediately see the output of calling functions you have in your elm files.
 
 With elm-instant, you can start typing expressions and immediately see results in the output panel without any glue code. Plus, it works for ui stuff too!
 
@@ -10,14 +10,12 @@ With elm-instant, you can start typing expressions and immediately see results i
 - Quick way for someone new to the language to try it out
 - Mix of ui views + normal expressions
 - Has around 38 packages built in (the list is below). E.g. Just do `import Http` and it will work.
-- Can load files from the disk and the dependencies will be resolves automatically
-- Can try multiple expressions for the same function. i like how [clojurescript devcards](https://github.com/bhauman/devcards)) describes themselves - visual REPL.
+- Can load files from the disk and the dependencies will be resolved automatically
+- Can try multiple expressions for the same function. i like how [clojurescript devcards](https://github.com/bhauman/devcards) describes themselves - visual REPL.
 
 ![Elm counter pairs from elm-architechture examples](https://raw.githubusercontent.com/mukeshsoni/elm-instant/master/images/showcase.gif)
 
-elm-instant was inspired by [haskell for mac](http://haskellformac.com), the idea is to have a playground panel where users can type out code expressions and see the result instantaneously without any setup. There is a similar thing currently for elm ([elm-lang.org/try](elm-lang.org/try)) but it has limited functionality and doesn't work without having the ui layer (model, view, update, main etc.).
-
-#### The project is still in heavy development. You currently need to clone and run locally. Contributions and feedback are welcome!
+elm-instant was inspired by [haskell for mac](http://haskellformac.com). The primary idea is to have a playground panel where users can type out code expressions and see the result instantaneously without any setup. There is a similar thing currently for elm ([elm-lang.org/try](elm-lang.org/try)) but it has limited functionality and doesn't work without having the ui layer (model, view, update, main etc.).
 
 ## Setup
 
