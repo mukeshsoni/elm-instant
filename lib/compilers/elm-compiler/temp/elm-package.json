@@ -4,9 +4,9 @@
     "repository": "https://github.com/user/project.git",
     "license": "BSD3",
     "source-directories": [
-        "/Users/mukeshsoni/Documents/projects/elm-instant/lib/compilers/elm-compiler/temp",
-        "/Users/mukeshsoni/Desktop/test/elm-architecture-tutorial/examples",
-        "/Users/mukeshsoni/Desktop/test/elm-architecture-tutorial/nesting"
+        "/Users/shamansir/Worktable/elm-instant/lib/compilers/elm-compiler/temp",
+        "/Users/shamansir/Workspace/exercism/elm",
+        "/Users/shamansir/Workspace/exercism/elm/./hello-world,./bob,./leap,./raindrops,./pangram,./triangle,./anagram,./space-age,./difference-of-squares"
     ],
     "exposed-modules": [],
     "dependencies": {
