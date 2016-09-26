@@ -1,32 +1,39 @@
 module UserCode exposing (..)
 
-import Html exposing (Html)
+import Html exposing (..)
 import Html.App as Html
-import Svg exposing (..)
-import Svg.Attributes exposing (..)
-import Time exposing (Time, second)
+import Html.Attributes exposing (..)
+import Html.Events exposing (..)
+import Http
+import Json.Decode as Json
+import Task
 
 
 
 main =
   Html.program
-    { init = init
+    { init = init "cats"
     , view = view
     , update = update
     , subscriptions = subscriptions
     }
 
-subtract x y = x - y
+
 
 -- MODEL
 
 
-type alias Model = Time
+type alias Model =
+  { topic : String
+  , gifUrl : String
+  }
 
 
-init : (Model, Cmd Msg)
-init =
-  (0, Cmd.none)
+init : String -> (Model, Cmd Msg)
+init topic =
+  ( Model topic "waiting.gif"
+  , getRandomGif topic
+  )
 
 
 
@@ -34,23 +41,22 @@ init =
 
 
 type Msg
-  = Tick Time
+  = MorePlease
+  | FetchSucceed String
+  | FetchFail Http.Error
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
-    Tick newTime ->
-      (newTime, Cmd.none)
+    MorePlease ->
+      (model, getRandomGif model.topic)
 
+    FetchSucceed newUrl ->
+      (Model model.topic newUrl, Cmd.none)
 
-
--- SUBSCRIPTIONS
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-  Time.every second Tick
+    FetchFail _ ->
+      (model, Cmd.none)
 
 
 
@@ -59,17 +65,36 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
+  div []
+    [ h2 [] [text model.topic]
+    , button [ onClick MorePlease ] [ text "More Please!" ]
+    , br [] []
+    , img [src model.gifUrl] []
+    ]
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+  Sub.none
+
+
+
+-- HTTP
+
+
+getRandomGif : String -> Cmd Msg
+getRandomGif topic =
   let
-    angle =
-      turns (Time.inMinutes model)
-
-    handX =
-      toString (50 + 40 * cos angle)
-
-    handY =
-      toString (50 + 40 * sin angle)
+    url =
+      "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" ++ topic
   in
-    svg [ viewBox "0 0 100 100", width "300px" ]
-      [ circle [ cx "50", cy "50", r "45", fill "#0B79CE" ] []
-      , line [ x1 "50", y1 "50", x2 handX, y2 handY, stroke "#023963" ] []
-      ]
+    Task.perform FetchFail FetchSucceed (Http.get decodeGifUrl url)
+
+
+decodeGifUrl : Json.Decoder String
+decodeGifUrl =
+  Json.at ["data", "image_url"] Json.string

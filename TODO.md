@@ -4,6 +4,7 @@
 - [x] while creating playground editor, fix the grammar as 'elm'
 - [x] install language-elm and elm-format atom packages as dependency for installing this package (called package-deps :))
 - [x] output pane does not scroll
+- [ ] map playground code to file name
 - [ ] add eslint rules (.eslintrc)
 - [ ] add flow/typescript
 - [ ] should be able to resize the preview pane
