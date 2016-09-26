@@ -1,6 +1,6 @@
 'use babel';
 
-import ReactInstant from '../lib/react-instant';
+import ReactInstant from '../lib/elm-instant';
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -12,32 +12,32 @@ describe('ReactInstant', () => {
 
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
-    activationPromise = atom.packages.activatePackage('react-instant');
+    activationPromise = atom.packages.activatePackage('elm-instant');
   });
 
-  describe('when the react-instant:toggle event is triggered', () => {
+  describe('when the elm-instant:toggle event is triggered', () => {
     it('hides and shows the modal panel', () => {
       // Before the activation event the view is not on the DOM, and no panel
       // has been created
-      expect(workspaceElement.querySelector('.react-instant')).not.toExist();
+      expect(workspaceElement.querySelector('.elm-instant')).not.toExist();
 
       // This is an activation event, triggering it will cause the package to be
       // activated.
-      atom.commands.dispatch(workspaceElement, 'react-instant:toggle');
+      atom.commands.dispatch(workspaceElement, 'elm-instant:toggle');
 
       waitsForPromise(() => {
         return activationPromise;
       });
 
       runs(() => {
-        expect(workspaceElement.querySelector('.react-instant')).toExist();
+        expect(workspaceElement.querySelector('.elm-instant')).toExist();
 
-        let reactInstantElement = workspaceElement.querySelector('.react-instant');
+        let reactInstantElement = workspaceElement.querySelector('.elm-instant');
         expect(reactInstantElement).toExist();
 
         let reactInstantPanel = atom.workspace.panelForItem(reactInstantElement);
         expect(reactInstantPanel.isVisible()).toBe(true);
-        atom.commands.dispatch(workspaceElement, 'react-instant:toggle');
+        atom.commands.dispatch(workspaceElement, 'elm-instant:toggle');
         expect(reactInstantPanel.isVisible()).toBe(false);
       });
     });
@@ -51,11 +51,11 @@ describe('ReactInstant', () => {
       // workspaceElement to the DOM are generally slower than those off DOM.
       jasmine.attachToDOM(workspaceElement);
 
-      expect(workspaceElement.querySelector('.react-instant')).not.toExist();
+      expect(workspaceElement.querySelector('.elm-instant')).not.toExist();
 
       // This is an activation event, triggering it causes the package to be
       // activated.
-      atom.commands.dispatch(workspaceElement, 'react-instant:toggle');
+      atom.commands.dispatch(workspaceElement, 'elm-instant:toggle');
 
       waitsForPromise(() => {
         return activationPromise;
@@ -63,9 +63,9 @@ describe('ReactInstant', () => {
 
       runs(() => {
         // Now we can test for view visibility
-        let reactInstantElement = workspaceElement.querySelector('.react-instant');
+        let reactInstantElement = workspaceElement.querySelector('.elm-instant');
         expect(reactInstantElement).toBeVisible();
-        atom.commands.dispatch(workspaceElement, 'react-instant:toggle');
+        atom.commands.dispatch(workspaceElement, 'elm-instant:toggle');
         expect(reactInstantElement).not.toBeVisible();
       });
     });

@@ -2,8 +2,8 @@
   "context-menu": {
     "atom-text-editor": [
       {
-        "label": "Toggle react-instant",
-        "command": "react-instant:toggle"
+        "label": "Toggle elm-instant",
+        "command": "elm-instant:toggle"
       }
     ]
   },
@@ -12,11 +12,11 @@
       "label": "Packages",
       "submenu": [
         {
-          "label": "react-instant",
+          "label": "elm-instant",
           "submenu": [
             {
               "label": "Toggle",
-              "command": "react-instant:toggle"
+              "command": "elm-instant:toggle"
             }
           ]
         }

@@ -1,8 +1,8 @@
 'use babel';
 
-import ReactInstantView from '../lib/react-instant-view';
+import ElmInstantView from '../lib/elm-instant-view';
 
-describe('ReactInstantView', () => {
+describe('ElmInstantView', () => {
   it('has one valid test', () => {
     expect('life').toBe('easy');
   });
