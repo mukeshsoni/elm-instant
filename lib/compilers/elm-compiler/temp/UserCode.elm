@@ -1,29 +1,32 @@
 module UserCode exposing (..)
 
-import Html exposing (Html, button, div, text)
+import Html exposing (Html)
 import Html.App as Html
-import Html.Events exposing (onClick)
+import Svg exposing (..)
+import Svg.Attributes exposing (..)
+import Time exposing (Time, second)
 
 
 
 main =
-  Html.beginnerProgram
-    { model = model
+  Html.program
+    { init = init
     , view = view
     , update = update
+    , subscriptions = subscriptions
     }
 
-
+subtract x y = x - y
 
 -- MODEL
 
 
-type alias Model = Int
+type alias Model = Time
 
 
-model : Model
-model =
-  0
+init : (Model, Cmd Msg)
+init =
+  (0, Cmd.none)
 
 
 
@@ -31,18 +34,23 @@ model =
 
 
 type Msg
-  = Increment
-  | Decrement
+  = Tick Time
 
 
-update : Msg -> Model -> Model
+update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
-    Increment ->
-      model + 1
+    Tick newTime ->
+      (newTime, Cmd.none)
 
-    Decrement ->
-      model - 1
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+  Time.every second Tick
 
 
 
@@ -51,8 +59,17 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div []
-    [ button [ onClick Decrement ] [ text "-" ]
-    , div [] [ text (toString model) ]
-    , button [ onClick Increment ] [ text "+" ]
-    ]
+  let
+    angle =
+      turns (Time.inMinutes model)
+
+    handX =
+      toString (50 + 40 * cos angle)
+
+    handY =
+      toString (50 + 40 * sin angle)
+  in
+    svg [ viewBox "0 0 100 100", width "300px" ]
+      [ circle [ cx "50", cy "50", r "45", fill "#0B79CE" ] []
+      , line [ x1 "50", y1 "50", x2 handX, y2 handY, stroke "#023963" ] []
+      ]
