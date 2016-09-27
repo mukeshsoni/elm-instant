@@ -1,19 +1,16 @@
 module UserCode exposing (..)
 
-import Html exposing (Html)
+import Html exposing (..)
 import Html.App as Html
-import Svg exposing (..)
-import Svg.Attributes exposing (..)
-import Time exposing (Time, second)
+import Html.Attributes exposing (..)
+import Html.Events exposing (onInput)
 
 
---
 main =
-  Html.program
-    { init = init
+  Html.beginnerProgram
+    { model = model
     , view = view
     , update = update
-    , subscriptions = subscriptions
     }
 
 
@@ -21,12 +18,16 @@ main =
 -- MODEL
 
 
-type alias Model = Time
+type alias Model =
+  { name : String
+  , password : String
+  , passwordAgain : String
+  }
 
 
-init : (Model, Cmd Msg)
-init =
-  (0, Cmd.none)
+model : Model
+model =
+  Model "" "" ""
 
 
 
@@ -34,23 +35,22 @@ init =
 
 
 type Msg
-  = Tick Time
+    = Name String
+    | Password String
+    | PasswordAgain String
 
 
-update : Msg -> Model -> (Model, Cmd Msg)
+update : Msg -> Model -> Model
 update msg model =
   case msg of
-    Tick newTime ->
-      (newTime, Cmd.none)
+    Name name ->
+      { model | name = name }
 
+    Password password ->
+      { model | password = password }
 
-
--- SUBSCRIPTIONS
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-  Time.every second Tick
+    PasswordAgain password ->
+      { model | passwordAgain = password }
 
 
 
@@ -59,17 +59,21 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
+  div []
+    [ input [ type' "text", placeholder "Enter Name", onInput Name ] []
+    , input [ type' "password", placeholder "Password", onInput Password ] []
+    , input [ type' "password", placeholder "Re-enter Password", onInput PasswordAgain ] []
+    , viewValidation model
+    ]
+
+
+viewValidation : Model -> Html msg
+viewValidation model =
   let
-    angle =
-      turns (Time.inMinutes model)
-
-    handX =
-      toString (50 + 40 * cos angle)
-
-    handY =
-      toString (50 + 40 * sin angle)
+    (color, message) =
+      if model.password == model.passwordAgain then
+        ("green", "OK")
+      else
+        ("red", "Passwords do not match!")
   in
-    svg [ viewBox "0 0 100 100", width "300px" ]
-      [ circle [ cx "50", cy "50", r "45", fill "#0B79CE" ] []
-      , line [ x1 "50", y1 "50", x2 handX, y2 handY, stroke "#023963" ] []
-      ]
+    div [ style [("color", color)] ] [ text message ]
