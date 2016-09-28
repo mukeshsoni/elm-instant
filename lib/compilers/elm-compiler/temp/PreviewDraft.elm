@@ -13,15 +13,15 @@ import Ast.Statement exposing (ExportSet(..), Type(..), Statement(..))
 add2 : Int -> Int -> Int
 add2 a b = a + b
 
-charComponent : Char -> Html
+charComponent : Char -> Html Msg
 charComponent ch =
-    span ch
+    span [] [ text (toString ch) ]
 
-renderExpression : String -> Expression -> Html
+renderExpression : String -> Expression -> Html Msg
 renderExpression expressionString expressionType  =
     case expressionType of
-        Character ch -> charComponent ch
-        _ -> div expressionString
+        Character ch -> (charComponent ch)
+        _ -> (div [] [ text expressionString ])
     --   | String String
     --   | Integer Int
     --   | Float Float
@@ -38,7 +38,7 @@ renderExpression expressionString expressionType  =
     --   | Application Expression Expression
     --   | BinOp Expression Expression Expression
 
-renderAllExpressions : List String -> Html
+renderAllExpressions : List String -> Html Msg
 renderAllExpressions =
     List.map (\expressionString -> (renderExpression expressionString parseExpression))
 
