@@ -6,7 +6,7 @@ import Svg exposing (circle, line, svg)
 import Svg.Attributes exposing (..)
 import Time exposing (Time, second)
 
-
+main: Program Never
 main =
   program { init = init, view = view, update = update, subscriptions = subs }
 
