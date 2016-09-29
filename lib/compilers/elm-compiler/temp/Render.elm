@@ -39,7 +39,9 @@ variableComponent names =
 listComponent : List Expression -> Html a
 listComponent expressions =
     ul [ class "list" ]
-       (List.map renderExpressionDirectly expressions)
+       (List.map
+        (\expression -> li [] [ renderExpressionDirectly expression ])
+        expressions)
 
 lambdaComponent : List Name -> Expression -> Html a
 lambdaComponent names expression =
@@ -47,6 +49,14 @@ lambdaComponent names expression =
        [ dt [] [ text (String.join "," (List.map toString names)) ]
        , dd [] [ renderExpressionDirectly expression ]
        ]
+
+binopComponent : Expression -> Expression -> Expression -> Html a
+binopComponent operator expressionL expressionR =
+    div [ class "operator" ]
+        [ span [ class "operator-is" ] [ renderExpressionDirectly operator ]
+        , div [ class "left-expression" ]  [ renderExpressionDirectly expressionL ]
+        , div [ class "right-expression" ]  [ renderExpressionDirectly expressionR ]
+        ]
 
 notIdentifiedExpressionComponent : String -> Html a
 notIdentifiedExpressionComponent expressionString =
@@ -82,7 +92,8 @@ renderExpression (expressionString, expressionResult)  =
                 --   | Case Expression (List (Expression, Expression))
                 Lambda names expression -> (lambdaComponent names expression)
                 --   | Application Expression Expression
-                --   | BinOp Expression Expression Expression
+                BinOp operator expressionL expressionR ->
+                    (binopComponent operator expressionL expressionR)
                 _ -> (notIdentifiedExpressionComponent expressionString)
 
         Err error ->
