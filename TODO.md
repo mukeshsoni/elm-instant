@@ -6,6 +6,7 @@
 - [x] output pane does not scroll
 - [ ] UserCode.elm and elm-package.json keep changing on every commit. Need a way to make them static.
 - [x] map playground code to file name
+- [ ] run compiler stuff in a web worker
 - [ ] add eslint rules (.eslintrc)
 - [ ] add flow/typescript
 - [ ] should be able to resize the preview pane
