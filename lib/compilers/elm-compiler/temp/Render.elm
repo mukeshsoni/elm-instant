@@ -8,7 +8,6 @@ import Html.Attributes exposing (class)
 import Ast exposing (parseExpression, parseStatement, parse)
 import Ast.BinOp exposing (operators)
 import Ast.Expression exposing (Expression(..))
-import Ast.Helpers exposing (Name)
 
 type ParseError = UnknownExpression String
 
@@ -32,7 +31,7 @@ errorComponent : String -> Html a
 errorComponent str =
     span [ class "error" ] [ text str ]
 
-variableComponent : List Name -> Html a
+variableComponent : List String -> Html a
 variableComponent names =
     span [ class "var" ] [ text (toString names) ]
 
@@ -43,7 +42,7 @@ listComponent expressions =
         (\expression -> li [] [ renderExpressionDirectly expression ])
         expressions)
 
-lambdaComponent : List Name -> Expression -> Html a
+lambdaComponent : List String -> Expression -> Html a
 lambdaComponent names expression =
     dl [ class "lambda" ]
        [ dt [] [ text (String.join "," (List.map toString names)) ]
