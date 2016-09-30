@@ -1,7 +1,7 @@
 {
   "name": "elm-instant",
   "main": "./lib/elm-instant",
-  "version": "0.3.1",
+  "version": "0.3.5",
   "description": "Try your elm code from the editor. Provides a visual REPL and a preview pane",
   "keywords": [
     "elm",
@@ -31,9 +31,6 @@
     "react-elm-components": "1.0.0",
     "react-for-atom": "15.3.1-0",
     "rxjs": "5.0.0-beta.12"
-  },
-  "devDependencies": {
-    "standard": "8.1.0"
   },
   "package-deps": [
     "language-elm",
