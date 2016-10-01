@@ -1,9 +1,13 @@
-module Render exposing (renderExpression, renderAllExpressions)
+module Render exposing
+        ( renderExpression
+        , renderAll
+        , PreviewItem(..)
+        )
 
 import String
 
 import Html exposing (..)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, style)
 
 import Ast exposing (parseExpression, parseStatement, parse)
 import Ast.BinOp exposing (operators)
@@ -11,29 +15,31 @@ import Ast.Expression exposing (Expression(..))
 
 type ParseError = UnknownExpression String
 
+type PreviewItem = EmptyLines Int | UserExpression String
+
 charComponent : Char -> Html a
 charComponent ch =
-    span [ class "character" ] [ text (toString ch) ]
+    div [ class "character" ] [ text (toString ch) ]
 
 stringComponent : String -> Html a
 stringComponent str =
-    span [ class "string" ] [ text str ]
+    div [ class "string" ] [ text str ]
 
 integerComponent : Int -> Html a
 integerComponent num =
-    span [ class "integer" ] [ text (toString num) ]
+    div [ class "integer" ] [ text (toString num) ]
 
 floatComponent : Float -> Html a
 floatComponent num =
-    span [ class "float" ] [ text (toString num) ]
+    div [ class "float" ] [ text (toString num) ]
 
 errorComponent : String -> Html a
 errorComponent str =
-    span [ class "error" ] [ text str ]
+    div [ class "error" ] [ text str ]
 
 variableComponent : List String -> Html a
 variableComponent names =
-    span [ class "var" ] [ text (toString names) ]
+    div [ class "var" ] [ text (toString names) ]
 
 listComponent : List Expression -> Html a
 listComponent expressions =
@@ -59,7 +65,7 @@ binopComponent operator expressionL expressionR =
 
 notIdentifiedExpressionComponent : String -> Html a
 notIdentifiedExpressionComponent expressionString =
-    span [ class "not-identitied" ] [ text expressionString ]
+    div [ class "not-identitied" ] [ text expressionString ]
 
 getExpressionResult : String -> (String, Result ParseError Expression)
 getExpressionResult expressionString =
@@ -99,6 +105,15 @@ renderExpression (expressionString, expressionResult)  =
             case error of
                 UnknownExpression message -> (errorComponent message)
 
-renderAllExpressions : List String -> List (Html a)
-renderAllExpressions expressionStrings =
-    List.map renderExpression (List.map getExpressionResult expressionStrings)
+renderPreviewItem : PreviewItem -> Html a
+renderPreviewItem previewItem =
+    case previewItem of
+        UserExpression expressionString ->
+            renderExpression (getExpressionResult expressionString)
+        EmptyLines howMuch ->
+            div [ style [ ( "white-space", "pre") ] ]
+                [ text (String.repeat howMuch "\n") ]
+
+renderAll : List PreviewItem -> List (Html a)
+renderAll previewItems =
+    List.map renderPreviewItem previewItems
