@@ -1,5 +1,7 @@
 # elm-instant
 
+atom package link - https://atom.io/packages/elm-instant
+
 elm-instant is an atom package inspired by [haskell for mac](http://haskellformac.com). It provides both a visual REPL to try your elm code as well as a preview pane to immediately see the output of calling functions you have in your elm files.
 
 With elm-instant, you can start typing expressions and immediately see results in the output panel without any glue code. Plus, it works for ui stuff too!
