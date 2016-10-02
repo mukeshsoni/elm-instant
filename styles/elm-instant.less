@@ -9,18 +9,84 @@
 
 .elm-instant-output {
 
-    div.integer {
+    span.integer {
         color: aqua;
     }
 
-    div.string:before {
-        color: lightyellow;
+    span.character {
+        color: palegreen;
+        /*color: lightyellow;*/
+    }
+
+    span.float {
+        color: deeppink;
+    }
+
+    span.string {
+        color: khaki;
+    }
+
+    span.string:before {
+        color: cornsilk;
         content: '"';
     }
 
-    div.string:after {
-        color: lightyellow;
+    span.string:after {
+        color: cornsilk;
         content: '"';
+    }
+
+    span.empty-space {
+        display: block;
+        white-space: pre;
+    }
+
+    span.variable {
+        font-weight: bold;
+        color: yellow;
+    }
+
+    span.not-identified {
+        background-color: blue;
+        color: white;
+    }
+
+    span.error {
+        background-color: red;
+        color: white;
+    }
+
+    ul.list {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.list:before {
+        color: crimson;
+        content: '[';
+    }
+
+    ul.list:after {
+        color: crimson;
+        content: ']';
+    }
+
+    ul.list li {
+        display: inline;
+        list-style-type: none;
+    }
+
+    ul.list li:after {
+        color: mintcream;
+        content: ',';
+    }
+
+    ul.list li:last-child {
+        content: ''
+    }
+
+    div.operator {
+
     }
 
 }

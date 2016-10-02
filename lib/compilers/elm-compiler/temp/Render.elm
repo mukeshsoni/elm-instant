@@ -19,27 +19,27 @@ type PreviewItem = EmptyLines Int | UserExpression String
 
 charComponent : Char -> Html a
 charComponent ch =
-    div [ class "character" ] [ text (toString ch) ]
+    span [ class "character" ] [ text (toString ch) ]
 
 stringComponent : String -> Html a
 stringComponent str =
-    div [ class "string" ] [ text str ]
+    span [ class "string" ] [ text str ]
 
 integerComponent : Int -> Html a
 integerComponent num =
-    div [ class "integer" ] [ text (toString num) ]
+    span [ class "integer" ] [ text (toString num) ]
 
 floatComponent : Float -> Html a
 floatComponent num =
-    div [ class "float" ] [ text (toString num) ]
+    span [ class "float" ] [ text (toString num) ]
 
 errorComponent : String -> Html a
 errorComponent str =
-    div [ class "error" ] [ text str ]
+    span [ class "error" ] [ text str ]
 
 variableComponent : List String -> Html a
 variableComponent names =
-    div [ class "var" ] [ text (toString names) ]
+    span [ class "variable" ] [ text (toString names) ]
 
 listComponent : List Expression -> Html a
 listComponent expressions =
@@ -56,22 +56,22 @@ lambdaComponent names expression =
        , dd [] [ renderExpression expression ]
        ]
 
--- binopComponent : Expression -> Expression -> Expression -> Html a
--- binopComponent operator expressionL expressionR =
---     div [ class "operator" ]
---         [ span [ class "operator-is" ] [ renderExpressionDirectly operator ]
---         , div [ class "left-expression" ]  [ renderExpressionDirectly expressionL ]
---         , div [ class "right-expression" ]  [ renderExpressionDirectly expressionR ]
---         ]
+binopComponent : Expression -> Expression -> Expression -> Html a
+binopComponent operator expressionL expressionR =
+     div [ class "operator" ]
+         [ span [ class "operator-is" ] [ renderExpression operator ]
+         , div [ class "left-expression" ]  [ renderExpression expressionL ]
+         , div [ class "right-expression" ]  [ renderExpression expressionR ]
+         ]
 
 notIdentifiedExpressionComponent : String -> Html a
 notIdentifiedExpressionComponent expressionString =
-    div [ class "not-identitied" ] [ text expressionString ]
+    span [ class "not-identified" ] [ text expressionString ]
 
 emptyLinesComponent : Int -> Html a
 emptyLinesComponent howMuch =
-    div [ style [ ( "white-space", "pre") ] ]
-        [ text (String.repeat howMuch "\n") ]
+    span [ class "empty-space" ]
+         [ text (String.repeat howMuch "\n") ]
 
 unpackListCell : Expression -> List (Html a)
 unpackListCell cell =
@@ -103,8 +103,8 @@ renderExpression expression =
         --   | Case Expression (List (Expression, Expression))
         Lambda names expression -> (lambdaComponent names expression)
         --   | Application Expression Expression
-        -- BinOp operator expressionL expressionR ->
-            -- (binopComponent operator expressionL expressionR)
+        BinOp operator expressionL expressionR ->
+            (binopComponent operator expressionL expressionR)
         _ -> (notIdentifiedExpressionComponent (toString expression))
 
 renderExpressionFromString : String -> Html a
