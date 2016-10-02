@@ -43,10 +43,11 @@ variableComponent names =
 
 listComponent : List Expression -> Html a
 listComponent expressions =
-    ul [ class "list" ]
-       (List.map
-        (\expression -> li [] (unpackListCell expression))
-        expressions)
+    case (List.head expressions) of
+        Just cell ->
+            ul [ class "list" ]
+               (unpackListCell cell)
+        Nothing -> div [ class "empty-list" ] []
 
 lambdaComponent : List String -> Expression -> Html a
 lambdaComponent names expression =
@@ -76,7 +77,7 @@ unpackListCell : Expression -> List (Html a)
 unpackListCell cell =
     case cell of
         BinOp op l r -> List.append (unpackListCell l) (unpackListCell r)
-        v -> [ renderExpression v ]
+        v -> [ li [] [ renderExpression v ] ]
 
 getExpressionResult : String -> Result ParseError Expression
 getExpressionResult expressionString =
