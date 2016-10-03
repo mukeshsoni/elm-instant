@@ -4,9 +4,8 @@
     "repository": "https://github.com/user/project.git",
     "license": "BSD3",
     "source-directories": [
-        "/Users/shamansir/Worktable/elm-instant/lib/compilers/elm-compiler/temp",
-        "/Users/shamansir/Workspace/exercism/elm",
-        "/Users/shamansir/Workspace/exercism/elm/./hello-world,./bob,./leap,./raindrops,./pangram,./triangle,./anagram,./space-age,./difference-of-squares"
+        "/Users/mukeshsoni/Documents/projects/elm-instant/lib/compilers/elm-compiler/temp",
+        "/Users/mukeshsoni/Downloads"
     ],
     "exposed-modules": [],
     "dependencies": {

@@ -13,8 +13,9 @@
     "import/no-unresolved": [2, { ignore: ['electron'] }],
     "react/jsx-no-bind": 0,
     "react/prefer-stateless-function": 0,
-    "semi": 2,
-    "max-len": ["error", 400]
+    "semi": 0,
+    "max-len": ["error", 400],
+    "no-else-return": 0
   },
   "plugins": [
     "import",
