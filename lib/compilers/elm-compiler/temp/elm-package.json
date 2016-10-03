@@ -5,7 +5,8 @@
     "license": "BSD3",
     "source-directories": [
         "/Users/mukeshsoni/Documents/projects/elm-instant/lib/compilers/elm-compiler/temp",
-        "/Users/mukeshsoni/Downloads"
+        "/Users/mukeshsoni/Downloads",
+        "/Users/mukeshsoni/Documents/projects/elm-instant/lib/compilers/elm-compiler/temp"
     ],
     "exposed-modules": [],
     "dependencies": {
