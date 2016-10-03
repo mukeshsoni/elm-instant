@@ -7,6 +7,7 @@
 - [ ] UserCode.elm and elm-package.json keep changing on every commit. Need a way to make them static.
 - [x] map playground code to file name
 - [ ] run compiler stuff in a web worker
+- [ ] use <webview> tag to wrap the preview component. It's provided by electron to sandbox the stuff running there. Would prevent security attacks if people build apps that load remote data.
 - [ ] add eslint rules (.eslintrc)
 - [ ] add flow/typescript
 - [ ] should be able to resize the preview pane
