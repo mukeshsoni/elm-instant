@@ -14,7 +14,7 @@
   },
   "scripts": {
     "lint": "standard lib",
-    "install-elm-packages": "cd lib/compilers/elm-compiler/temp && rm -rf elm-stuff && elm-package install -y && cd -",
+    "install-elm-packages": "node elm-scripts",
     "preinstall": "npm run install-elm-packages"
   },
   "repository": "https://github.com/mukeshsoni/elm-instant",
