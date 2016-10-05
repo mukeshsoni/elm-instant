@@ -1,7 +1,7 @@
 {
   "name": "elm-instant",
   "main": "./lib/elm-instant",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Try your elm code from the editor. Provides a visual REPL and a preview pane",
   "keywords": [
     "elm",
