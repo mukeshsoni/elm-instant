@@ -6,6 +6,7 @@
 - [x] output pane does not scroll
 - [ ] UserCode.elm and elm-package.json keep changing on every commit. Need a way to make them static.
 - [x] map playground code to file name
+- [ ] can't have `rm -rf` in elm build script. Doesn't work on windows. Need to change it to rimraf.
 - [ ] run compiler stuff in a web worker
 - [ ] use <webview> tag to wrap the preview component. It's provided by electron to sandbox the stuff running there. Would prevent security attacks if people build apps that load remote data.
 - [ ] add eslint rules (.eslintrc)
