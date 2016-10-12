@@ -50,6 +50,17 @@ Html.program
   }
 ```
 
+To test the `UI` part of a view without having the whole triplet, use `$view` -
+
+```
+-- In your code
+ball =
+  div [] [text "assume it's a ball"]
+
+-- In the playground
+$view ball
+```
+
 ## Dev setup
 
 ```
