@@ -3,3 +3,6 @@ main*.js
 main*.elm
 UserCode.elm
 elm-package.json
+F*.elm
+f*.elm
+F*.js
