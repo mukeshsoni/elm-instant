@@ -6,19 +6,19 @@
 - [x] output pane does not scroll
 - [x] UserCode.elm and elm-package.json keep changing on every commit. Need a way to make them static.
 - [x] map playground code to file name
-- [ ] A single expression erroring out should not show error in the whole preview section. Alternate solutions
-    - [ ] The component returned for errorful expressions should be the error component
-    - [ ] return object from compiler which has {output, error} and then the output component (preview window) shows error at the bottom in a different section
-- [ ] elm-make is a big cpu hog. can't pass unchanged code expressions through elm-make again and again. Need a better cache strategy. Cache the generated js file using md5('code+filename')?
+- [x] A single expression erroring out should not show error in the whole preview section. Alternate solutions
+    - [x] The component returned for errorful expressions should be the error component
+    - [x] return object from compiler which has {output, error} and then the output component (preview window) shows error at the bottom in a different section
+- [x] elm-make is a big cpu hog. can't pass unchanged code expressions through elm-make again and again. Need a better cache strategy. Cache the generated js file using md5('code+filename')?
+- [x] can't have `rm -rf` in elm build script. Doesn't work on windows. Need to change it to rimraf.
+- [x] add eslint rules (.eslintrc)
+- [x] show errors with red background
+- [ ] add flow/typescript
+- [ ] run compiler stuff in a web worker
 - [ ] wrap each component produced by compiler in div with 'contain: strict' style.
 - [ ] the warn flag in elm-make shows type hints! Check it out to infer types for certain cases (like view function call to show UI for that view)
-- [ ] can't have `rm -rf` in elm build script. Doesn't work on windows. Need to change it to rimraf.
-- [ ] run compiler stuff in a web worker
 - [ ] use <webview> tag to wrap the preview component. It's provided by electron to sandbox the stuff running there. Would prevent security attacks if people build apps that load remote data.
-- [ ] add eslint rules (.eslintrc)
-- [ ] add flow/typescript
 - [ ] should be able to resize the preview pane
-- [ ] show errors with red background
 - [ ] load .pg (playground files extension) files, if any
 - [ ] Can save playground code as a file. Also, when the code file is loaded in the future, the playground file automatically gets loaded with it. That way, you can think of the playground code as sort of clojurescript devcards.
 - [ ] Preferences - allow user to add path to elm packages as a preference
