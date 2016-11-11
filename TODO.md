@@ -13,6 +13,7 @@
 - [x] can't have `rm -rf` in elm build script. Doesn't work on windows. Need to change it to rimraf.
 - [x] add eslint rules (.eslintrc)
 - [x] show errors with red background
+- [ ] add type inference feature like in other repls (:t something) in the playground. Use shamansir's node-elm-repl module.
 - [ ] add flow/typescript
 - [ ] run compiler stuff in a web worker
 - [ ] wrap each component produced by compiler in div with 'contain: strict' style.
