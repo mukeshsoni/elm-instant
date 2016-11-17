@@ -13,10 +13,11 @@
 - [x] can't have `rm -rf` in elm build script. Doesn't work on windows. Need to change it to rimraf.
 - [x] add eslint rules (.eslintrc)
 - [x] show errors with red background
+- [x] wrap each component produced by compiler in div with 'contain: strict' style.
 - [ ] add type inference feature like in other repls (:t something) in the playground. Use shamansir's node-elm-repl module.
+- [ ] show type hints on hover over names in the playground
 - [ ] add flow/typescript
 - [ ] run compiler stuff in a web worker
-- [ ] wrap each component produced by compiler in div with 'contain: strict' style.
 - [ ] the warn flag in elm-make shows type hints! Check it out to infer types for certain cases (like view function call to show UI for that view)
 - [ ] use <webview> tag to wrap the preview component. It's provided by electron to sandbox the stuff running there. Would prevent security attacks if people build apps that load remote data.
 - [ ] should be able to resize the preview pane
