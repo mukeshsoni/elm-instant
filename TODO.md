@@ -14,6 +14,9 @@
 - [x] add eslint rules (.eslintrc)
 - [x] show errors with red background
 - [x] wrap each component produced by compiler in div with 'contain: strict' style.
+- [x] might not work on windows because of folder paths (/ vs \)
+- [ ] animate the result which changed in the preview pane (like in haskellformac)
+- [ ] Show the type information for the results (to the right, like in haskellformac)
 - [ ] add type inference feature like in other repls (:t something) in the playground. Use shamansir's node-elm-repl module.
 - [ ] show type hints on hover over names in the playground
 - [ ] add flow/typescript
@@ -35,7 +38,6 @@
     - [ ] there are statements with expressions
     - [ ] the output content wraps in more than one line
     - [ ] when there is a mixture of expressions and ui components
-- [ ] might not work on windows because of folder paths (/ vs \)
 - [ ] Generate tests from playground code
 - [ ] For ui components, can generate tests for update function
 - [ ] use [memory-fs](https://www.npmjs.com/package/memory-fs) instead of writing files
