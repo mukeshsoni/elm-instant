@@ -4,14 +4,26 @@
 - [x] while creating playground editor, fix the grammar as 'elm'
 - [x] install language-elm and elm-format atom packages as dependency for installing this package (called package-deps :))
 - [x] output pane does not scroll
-- [ ] UserCode.elm and elm-package.json keep changing on every commit. Need a way to make them static.
+- [x] UserCode.elm and elm-package.json keep changing on every commit. Need a way to make them static.
 - [x] map playground code to file name
-- [ ] run compiler stuff in a web worker
-- [ ] use <webview> tag to wrap the preview component. It's provided by electron to sandbox the stuff running there. Would prevent security attacks if people build apps that load remote data.
-- [ ] add eslint rules (.eslintrc)
+- [x] A single expression erroring out should not show error in the whole preview section. Alternate solutions
+    - [x] The component returned for errorful expressions should be the error component
+    - [x] return object from compiler which has {output, error} and then the output component (preview window) shows error at the bottom in a different section
+- [x] elm-make is a big cpu hog. can't pass unchanged code expressions through elm-make again and again. Need a better cache strategy. Cache the generated js file using md5('code+filename')?
+- [x] can't have `rm -rf` in elm build script. Doesn't work on windows. Need to change it to rimraf.
+- [x] add eslint rules (.eslintrc)
+- [x] show errors with red background
+- [x] wrap each component produced by compiler in div with 'contain: strict' style.
+- [x] might not work on windows because of folder paths (/ vs \)
+- [ ] animate the result which changed in the preview pane (like in haskellformac)
+- [ ] Show the type information for the results (to the right, like in haskellformac)
+- [ ] add type inference feature like in other repls (:t something) in the playground. Use shamansir's node-elm-repl module.
+- [ ] show type hints on hover over names in the playground
 - [ ] add flow/typescript
+- [ ] run compiler stuff in a web worker
+- [ ] the warn flag in elm-make shows type hints! Check it out to infer types for certain cases (like view function call to show UI for that view)
+- [ ] use <webview> tag to wrap the preview component. It's provided by electron to sandbox the stuff running there. Would prevent security attacks if people build apps that load remote data.
 - [ ] should be able to resize the preview pane
-- [ ] show errors with red background
 - [ ] load .pg (playground files extension) files, if any
 - [ ] Can save playground code as a file. Also, when the code file is loaded in the future, the playground file automatically gets loaded with it. That way, you can think of the playground code as sort of clojurescript devcards.
 - [ ] Preferences - allow user to add path to elm packages as a preference
@@ -26,7 +38,6 @@
     - [ ] there are statements with expressions
     - [ ] the output content wraps in more than one line
     - [ ] when there is a mixture of expressions and ui components
-- [ ] might not work on windows because of folder paths (/ vs \)
 - [ ] Generate tests from playground code
 - [ ] For ui components, can generate tests for update function
 - [ ] use [memory-fs](https://www.npmjs.com/package/memory-fs) instead of writing files

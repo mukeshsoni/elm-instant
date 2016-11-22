@@ -1,0 +1,9 @@
+[ignore]
+  .*/node_modules/fbjs/lib/Deferred.js.flow
+  .*/node_modules/fbjs/lib/shallowEqual.js.flow
+
+[options]
+  suppress_type=$FlowIssue
+
+[libs]
+  ./node_modules/fbjs/flow/lib
