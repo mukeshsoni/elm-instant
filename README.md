@@ -1,3 +1,6 @@
+** NOTE ** version 2.0.0 works with elm 0.18 only. If you want it to work with
+elm 0.17, please install version v0.8.2
+
 # elm-instant
 
 atom package link - https://atom.io/packages/elm-instant
