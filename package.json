@@ -31,7 +31,7 @@
     "jsonfile": "2.4.0",
     "lodash": "4.15.0",
     "ps-node": "^0.1.2",
-    "react-elm-components": "1.0.0",
+    "react-elm-components": "1.0.1",
     "react-for-atom": "^15.3.1-0",
     "rimraf": "^2.5.4",
     "rxjs": "5.0.0-beta.12"
